@@ -56,9 +56,9 @@ dict_get_default = 'default'
 # ---------------------------- Read data file ------------------------- #
 # --------------------------------------------------------------------------- #
 
-cell_type = 'control_cells'
+cell_type = 'dyskinetic_cells'
 
-#input_ampl_volt = '_10V' # Between 5V - 25V
+#input_ampl_volt = '_25V' # Between 5V - 25V
 input_ampl_volt = '_all'
 
 # -------- Cells we want to exclude ------- #
@@ -74,13 +74,34 @@ else:
 
 
 # --------- Choose cells to fit --------- #
-# ['7378', '8047', '7578', '7684', '7754', '7686', '7845', '7670', '7754', '7824', '7751', '7860', '7599', '7566', '7819', '7580', '7222'] # All
-# ['7754', '7824', '7751', '7860', '7599', '7566', '7819', '7580', '7222'] # 10V cells APAMINE
+# ------------- Inhibition ------------ #
+#cells_to_fit =['Dysk6_neuron1', 'Dysk6_neuron2', 'Dysk9_neuron8', 'Dysk25_neuron2', 'Dysk25_neuron4', 'Dysk35_neuron1', 'Dysk38_neuron2', 'Dysk39_neuron5', 'Dysk39_neuron7', 'Dysk40_neuron6']
 
-#cells_to_fit = ['7754', '7824', '7751', '7860', '7599', '7566', '7819', '7222']
-#cells_to_fit = ['7580']
-#cells_to_fit = ['7378', '8047', '7578', '7684', '7754', '7686', '7845', '7670', '7754', '7824', '7751', '7860', '7599', '7566', '7819', '7222']
+# ----------- Triphasic ------------- #
+#cells_to_fit =['Dysk6_neuron3', 'Dysk6_neuron6', 'Dysk6_neuron7', 'Dysk9_neuron_exp', 'Dysk24_neuron1', 'Dysk24_neuron6', 'Dysk39_neuron4', 'Dysk39_neuron_exp']
+
+# -------------- Early excitation -------------- #
+#cells_to_fit =['Dysk6_neuron4', 'Dysk9_neuron3', 'Dysk35_neuron5']
+
+# ----------------- Excitation ----------------- #
+#cells_to_fit =['Dysk24_neuron4', 'Dysk25_neuron5', 'Dysk35_neuron_exp', 'Dysk40_neuron2', 'Dysk40_neuron3']
+
+# -------------- Inhibition + late excitation --------------- #
+#cells_to_fit =['Dysk6_neuron_exp', 'Dysk6_neuron5', 'Dysk9_neuron4', 'Dysk9_neuron5', 'Dysk24_neuron5', 'Dysk24_neuron_exp', 'Dysk25_neuron8', 'Dysk35_neuron6', 'Dysk39_neuron1', 'Dysk39_neuron6', 'Dysk39_neuron8', 'Dysk39_neuron9']
+
+# -------------- Late excitation -------------- #
+#cells_to_fit =['Dysk25_neuron7', 'Dysk35_neuron4', 'Dysk38_neuron7', 'Dysk38_neuron_exp']
+
+# ----------- non-responder -------------- #
+#cells_to_fit =['Dysk9_neuron1', 'Dysk24_neuron3', 'Dysk25_neuron1', 'Dysk25_neuron3', 'Dysk25_neuron6', 'Dysk35_neuron3', 'Dysk35_neuron7', 'Dysk38_neuron1', 'Dysk38_neuron3', 'Dysk38_neuron4', 'Dysk38_neuron5', 'Dysk38_neuron6', 'Dysk39_neuron2', 'Dysk40_neuron1', 'Dysk40_neuron4', 'Dysk40_neuron5']
+
+# ------------ Early excitation + inhibition -------------- #
+#cells_to_fit =['Dysk6_neuron8', 'Dysk9_neuron2', 'Dysk24_neuron2', 'Dysk25_neuron9', 'Dysk25_neuron_exp', 'Dysk35_neuron2', 'Dysk35_neuron8', 'Dysk39_neuron3', 'Dysk40_neuron_exp']
+
+
+
 cells_to_fit = []
+
 params_fitted_dictionary_to_load = "params_fitted_dictionary_" +cell_type.upper() +input_ampl_volt +'.p'
 
 params_fitted_dictionary_to_save = params_fitted_dictionary_to_load
@@ -93,11 +114,11 @@ pickle_convolution_data = 'Convolution_data_' +cell_type.upper() +'.p'
 # ---------------------------- Name for mean of recording cells -------------- #
 mean_data = cell_type.upper() + '_mean'
 
-#time_first_artefact = 250.0 # msec
+#time_first_artefact = 25.0 # msec
 time_first_artefact = 20.0 # msec
 
 if time_first_artefact:
-    pickle_convolution_data = 'Convolution_data_' +cell_type.upper() +'_20ms.p'
+    pickle_convolution_data = 'Convolution_data_' +cell_type.upper() +'.p'
 
 
 # Duration of a cycle is 1 second #
@@ -130,6 +151,8 @@ for cell_input_name in datas.columns: # Loop on each cell
         for remov_ampl in removing_input_ampl_volt:
             if cell_input_name.find(remov_ampl) >= 0:
                 list_names_cell.remove(cell_input_name)
+
+
 
 # ------------ If there are specific cells to fit ------------ #
 if len(cells_to_fit):

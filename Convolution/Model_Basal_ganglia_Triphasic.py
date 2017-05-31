@@ -82,6 +82,8 @@ if __name__ == "__main__":
     datas_hist_array = np.array(datas_hist_list)
     #    axis = sns.tsplot(data=datas_hist_array, time=datas.index.astype(float))
     #    axis.set(xlim=(time_first_artefact-5.0, time_first_artefact+60.0))
-    axis = sns.tsplot(data=datas_hist_array, time=datas.index.astype(float), ci=[68, 95]) # Respectively one std and two std from mean (std = sigma)
+    axis = sns.tsplot(data=datas_hist_array, time=datas.index.astype(float), ci=[68, 95])
+
+
 
 

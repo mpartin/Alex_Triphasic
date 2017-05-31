@@ -46,11 +46,11 @@ dict_get_default = 'default'
 # ---------------------------- Read data file ------------------------- #
 # --------------------------------------------------------------------------- #
 
-cell_type = 'control_cells'
+cell_type = 'dyskinetic_cells'
 
 # ---------------------------- Input and ouput path ----------------------------#
 
-rel_path_data = '/../../Data/2016_01/' +cell_type.upper() +'/'
+rel_path_data = '/../../Data/2015_10/' +cell_type.upper() +'/'
 
 pickle_convolution_data = 'Convolution_data_' +cell_type.upper() +'.p'
 
@@ -84,7 +84,7 @@ noise_ind = 0.0 # No unit
 default_value = -100.0 # Special index value, easy to exclude
 
 
-#time_first_artefact = 250.0 # msec
+#time_first_artefact = 25.0 # msec
 time_first_artefact = 20.0 # msec
 
 
