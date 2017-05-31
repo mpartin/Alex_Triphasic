@@ -46,23 +46,13 @@ dict_get_default = 'default'
 # ---------------------------- Read data file ------------------------- #
 # --------------------------------------------------------------------------- #
 
-# SHAM or 60HDA cells #
-#cell_type = 'sham'
-cell_type = '6ohda'
-
-#maniper_name = '_Asier'
-maniper_name = '_Bertrand'
-#maniper_name = '_both'
-
+cell_type = 'control_cells'
 
 # ---------------------------- Input and ouput path ----------------------------#
 
-rel_path_data = '/../../Data/2015_10/' +cell_type.upper() +maniper_name +'/'
-#rel_path_data = '/../../Data/2015_10/' +'Test_hist_A/'
-#rel_path_data = '/../../Data/2015_10/' +'Test_hist_B/'
-#rel_path_data = '/../../Data/2015_10/' +'Test_hist_C/'
+rel_path_data = '/../../Data/2016_01/' +cell_type.upper() +'/'
 
-pickle_convolution_data = 'Convolution_data_' +cell_type.upper() +maniper_name +'.p'
+pickle_convolution_data = 'Convolution_data_' +cell_type.upper() +'.p'
 
 # ---------------------------- Name for mean of recording cells -------------- #
 mean_data = cell_type.upper() + '_mean'
@@ -94,16 +84,8 @@ noise_ind = 0.0 # No unit
 default_value = -100.0 # Special index value, easy to exclude
 
 
-# ASIER parameters #
-# The first artefact is at 50 ms #
-if maniper_name =="_Asier":
-#    time_first_artefact = 50.0 # msec
-    time_first_artefact = 20.0 # msec
-
-elif maniper_name =="_Bertrand":
-    time_first_artefact = 20.0 # msec
-elif maniper_name =="_both":
-    time_first_artefact = 20.0 # msec
+#time_first_artefact = 250.0 # msec
+time_first_artefact = 20.0 # msec
 
 
 # Duration of a cycle is 1 second #

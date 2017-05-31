@@ -56,16 +56,14 @@ dict_get_default = 'default'
 # ---------------------------- Read data file ------------------------- #
 # --------------------------------------------------------------------------- #
 
-# SHAM or 60HDA cells #
-#cell_type = 'sham'
-cell_type = '6ohda'
+cell_type = 'control_cells'
 
-#input_ampl_volt = '_15V' # Between 5V - 25V
+#input_ampl_volt = '_10V' # Between 5V - 25V
 input_ampl_volt = '_all'
 
 # -------- Cells we want to exclude ------- #
 #removing_input_ampl_volt = [] # Between 5V - 25V
-removing_input_ampl_volt = ['_5V', '_25V', '_30V'] # Between 5V - 25V
+removing_input_ampl_volt = ['_5V', '_25V'] # Between 5V - 25V
 
 
 if input_ampl_volt == '_all':
@@ -75,88 +73,31 @@ else:
     input_voltage = float(input_voltage.replace('V',''))
 
 
-## ------- 6OHDA inhibition+late_excitation Asier ------- #
-#cells_to_fit_temp_Asier = ['OHDA3_neuron5', 'OHDA3_neuron10', 'OHDA1_neuron8']
-## ------- 6OHDA inhibition Asier ------- #
-#cells_to_fit_temp_Asier = ['OHDA2_neuron1', 'OHDA1_neuron2', 'OHDA1_neuron3', 'OHDA1_neuron4', 'OHDA1_neuron5', 'OHDA1_neuron9', 'OHDA1_neuron10', 'OHDA1_neuron13', 'OHDA1_neuron14']
-## ------- 6OHDA Non-responder Asier ------- #
-#cells_to_fit_temp_Asier = ['OHDA1_neuron6', 'OHDA1_neuron7']
-## ------- 6OHDA Excitation Asier ------- #
-#cells_to_fit_temp_Asier = ['OHDA1_neuron11']
-#
-## ------- 6OHDA inhibition+late_excitation Bertrand     ------- #
-#cells_to_fit_temp_Bertrand = ['DSK7_6936', 'DSK8_6968', 'DSK_7356', 'DSK6_8164']
-## ------- 6OHDA inhibition Bertrand ------- #
-#cells_to_fit_temp_Bertrand = ['DSK8_6938', 'DSK7_7210', 'DSK8_7238', 'DSK6_7250', 'DSK_7372']
-## ------- 6OHDA excitation Bertrand ------- #
-#cells_to_fit_temp_Bertrand = ['DSK8_6994', 'DSK7_7030', 'DSK6_7486', 'DSK7_7944']
-## ------- 6OHDA Non-responder Bertrand ------- #
-#cells_to_fit_temp_Bertrand = ['DSK8_7006', 'DSK8_7356', 'DSK8_7422', 'DSK6_7822']
-## ------- 6OHDA triphasic Bertrand ------- #
-cells_to_fit_temp_Bertrand = ['DSK4_7014', 'DSK_7238', 'DSK_8056']
-## ------- 6OHDA excitation+inhibition Bertrand ------- #
-#cells_to_fit_temp_Bertrand = ['DSK_7234', 'DSK_7326', 'DSK_7418', 'DSK_7536']
-
-## ------- SHAM inhibition+late excitation Asier ------- #
-#cells_to_fit_temp_Asier = ['SHAM4_neuron1', 'SHAM4_neuron3', 'SHAM4_neuron8', 'SHAM5_neuron8', 'SHAM5_neuron12', 'SHAM6_neuron7']
-## ------- SHAM excitation+inhibition Asier ------- #
-#cells_to_fit_temp_Asier = ['SHAM4_neuron2', 'SHAM6_neuron1', 'SHAM6_neuron2', 'SHAM6_neuron4']
-## ------- SHAM inhibition Asier ------- #
-#cells_to_fit_temp_Asier = ['SHAM4_neuron4', 'SHAM4_neuron5', 'SHAM4_neuron7', 'SHAM5_neuron9', 'SHAM5_neuron13', 'SHAM6_neuron6']
-## ------- SHAM Excitation Asier ------- #
-#cells_to_fit_temp_Asier = ['SHAM4_neuron6', 'SHAM5_neuron1', 'SHAM5_neuron5', 'SHAM6_neuron5']
-## ------- Non-responder Asier ------- #
-#cells_to_fit_temp_Asier = ['SHAM5_neuron10']
-# ------- Triphasic Asier ------- #
-#cells_to_fit_temp_Asier = ['SHAM5_neuron11', 'SHAM6_neuron3']
-
-cells_to_fit_temp_Asier = []
-
-## ------- SHAM inhibition+late excitation Bertrand ------- #
-#cells_to_fit_temp_Bertrand = ['DSK4_7698', 'DSK6_7654', 'DSK6_7746']
-## ------- SHAM inhibition Bertrand ------- #
-#cells_to_fit_temp_Bertrand = ['DSK5_7180', 'DSK5_8272', 'DSK6_7150', 'DSK7_7764', 'DSK7_7798', 'DSK7_7800', 'DSK7_8058']
-# ------- Triphasic Bertrand ------- #
-#cells_to_fit_temp_Bertrand = ['DSK5_7634', 'DSK5_8030', 'DSK5_8082', 'DSK7_7714', 'DSK5_8272']
-## ------- Non-responder Bertrand ------- #
-#cells_to_fit_temp_Bertrand = ['DSK6_7858']
-
-
-#cells_to_fit_temp_Bertrand = []
-
-# ------- BOTH ------- #
-cells_to_fit_temp_Both = cells_to_fit_temp_Asier +cells_to_fit_temp_Bertrand
-
 # --------- Choose cells to fit --------- #
+# ['7378', '8047', '7578', '7684', '7754', '7686', '7845', '7670', '7754', '7824', '7751', '7860', '7599', '7566', '7819', '7580', '7222'] # All
+# ['7754', '7824', '7751', '7860', '7599', '7566', '7819', '7580', '7222'] # 10V cells APAMINE
+
+#cells_to_fit = ['7754', '7824', '7751', '7860', '7599', '7566', '7819', '7222']
+#cells_to_fit = ['7580']
+#cells_to_fit = ['7378', '8047', '7578', '7684', '7754', '7686', '7845', '7670', '7754', '7824', '7751', '7860', '7599', '7566', '7819', '7222']
 cells_to_fit = []
-#cells_to_fit = cells_to_fit_temp_Asier
-cells_to_fit = cells_to_fit_temp_Both
-
-#maniper_name = '_Asier'
-#maniper_name = '_Bertrand'
-maniper_name = '_both'
-
-
-params_fitted_dictionary_to_load = "params_fitted_dictionary_" +cell_type.upper() +maniper_name +input_ampl_volt +'.p'
+params_fitted_dictionary_to_load = "params_fitted_dictionary_" +cell_type.upper() +input_ampl_volt +'.p'
 
 params_fitted_dictionary_to_save = params_fitted_dictionary_to_load
 
 # ---------------------------- Input and ouput path ----------------------------#
 
-rel_path_data = '/../../Data/2015_10/' +cell_type.upper() +maniper_name +'/'
-pickle_convolution_data = 'Convolution_data_' +cell_type.upper() +maniper_name +'.p'
+rel_path_data = '/../../Data/2016_01/' +cell_type.upper() +'/'
+pickle_convolution_data = 'Convolution_data_' +cell_type.upper() +'.p'
 
 # ---------------------------- Name for mean of recording cells -------------- #
 mean_data = cell_type.upper() + '_mean'
 
-# ASIER parameters #
-# The first artefact is at 50 ms #
-if maniper_name =="_Asier":
-    time_first_artefact = 20.0 # msec
-elif maniper_name =="_Bertrand":
-    time_first_artefact = 20.0 # msec
-elif maniper_name =="_both":
-    time_first_artefact = 20.0 # msec
+#time_first_artefact = 250.0 # msec
+time_first_artefact = 20.0 # msec
+
+if time_first_artefact:
+    pickle_convolution_data = 'Convolution_data_' +cell_type.upper() +'_20ms.p'
 
 
 # Duration of a cycle is 1 second #
@@ -189,7 +130,6 @@ for cell_input_name in datas.columns: # Loop on each cell
         for remov_ampl in removing_input_ampl_volt:
             if cell_input_name.find(remov_ampl) >= 0:
                 list_names_cell.remove(cell_input_name)
-
 
 # ------------ If there are specific cells to fit ------------ #
 if len(cells_to_fit):

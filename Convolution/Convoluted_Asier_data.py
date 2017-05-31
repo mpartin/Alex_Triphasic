@@ -175,11 +175,11 @@ def Histogram_on_series(list_serie, time_step, max_hist, bin_hist = 1.0):
     return list_hist_array
 
 # Histogram and convolution #
-def Histograms_on_series_2(list_index_time_serie, df_convolution, num_bins = max_cycle_dur, xlim_min = 15.0, xlim_max = 50.0):
+def Histograms_on_series_2(list_index_time_serie, df_convolution, num_bins = max_cycle_dur, xlim_min = 15.0, xlim_max = 100.0):
 
     for i in range(len(list_index_time_serie)):
 
-        with PdfPages('Hist_' +list_names[i].replace('_artefact_timing.txt','.pdf')) as pdf:
+        with PdfPages('Hist_' +list_names[i].replace('_a.txt','.pdf')) as pdf:
 
             plt.figure()
             n,bins,patches = plt.hist(list_index_time_serie[i].iloc[:,0], num_bins, range=(time_first_artefact, num_bins +time_first_artefact))
@@ -259,7 +259,7 @@ if __name__ == "__main__":
 
     #    plt.plot(list_artefact_and_spike_serie[15].index, list_artefact_and_spike_serie[15], '-ro')
     #    plt.plot(list_cycle_spike_regular_serie[15].index, list_cycle_spike_regular_serie[15].values)
-    #    plt.plot(df_convolution.iloc[:,25].index, df_convolution.iloc[:,25])
+    #    plt.plot(df_convolution.iloc[:,15].index, df_convolution.iloc[:,15])
 
     #    pos = list_names.index('SHAM6_neuron3_5V_artefact_timing.txt')
     #

@@ -67,17 +67,8 @@ if __name__ == "__main__":
                  ]
 
     # Plot of Asier data and simulation fit #
-    plot_data_frame(df_to_plot, 'Triphasic fit', 'Time in msec', 'Activity', xlim = (time_first_artefact-5.0, time_first_artefact+80.0), legend_label=['SNR fit','SNR data','Cortex fit'])
+    plot_data_frame(df_to_plot, 'Triphasic fit', 'Time in msec', 'Activity', xlim = (time_first_artefact-5.0, time_first_artefact+60.0), legend_label=['SNR fit','SNR data','Cortex fit'])
 
-
-    # ------------------ DIRECT ----------------- #
-    import pylab as plt
-    plt.figure()
-    plt.plot(data_to_fit.iloc[0:int(500/time_step)].index, data_to_fit.iloc[0:int(500/time_step)].values)
-    plt.legend(['SHAM', '6OHDA'])
-    plt.title('10V-15V-20V | all types mixed | Bertrand')
-    plt.xlabel('Time (ms)')
-    plt.ylabel('Nb spikes')
 
     # -------------------------- Histograms with standard error envelop ------------------ #
 
@@ -91,31 +82,6 @@ if __name__ == "__main__":
     datas_hist_array = np.array(datas_hist_list)
     #    axis = sns.tsplot(data=datas_hist_array, time=datas.index.astype(float))
     #    axis.set(xlim=(time_first_artefact-5.0, time_first_artefact+60.0))
-    axis = sns.tsplot(data=datas_hist_array, time=datas.index.astype(float), ci=[68, 95])
-
-
-# Plot list of data frame by using the index
-def plot_data_frame(list_data, Title='Empty', xlabel='Empty', ylabel='Empty', fontsize = 20, legend_label = [], plot_style = 'ggplot', xlim = (None, None), ylim = (None, None), savefig = False, fig_name = 'fig.png', default_linewidth = 2.0):
-
-    plt.style.use(plot_style)
-    plt.figure()
-
-    for i in xrange(len(list_data)):
-        plt.plot(list_data[i].index, list_data[i].values, linewidth = default_linewidth)
-
-
-
-    plt.suptitle(Title, fontsize = fontsize)
-    plt.xlabel(xlabel, fontsize = fontsize)
-    plt.ylabel(ylabel, fontsize = fontsize)
-    plt.xlim(xlim)
-    plt.ylim(ylim)
-
-    if len(legend_label):
-        plt.legend(legend_label)
-
-    if savefig:
-        plt.savefig(fig_name)
-
+    axis = sns.tsplot(data=datas_hist_array, time=datas.index.astype(float), ci=[68, 95]) # Respectively one std and two std from mean (std = sigma)
 
 
