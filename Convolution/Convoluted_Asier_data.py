@@ -12,7 +12,7 @@
     - pre_treatment(round_decim, time_step)
     - convolution_Asier_data(rel_path_data, output_pickle_data)
 
-    @author: Alexandre Foncelle
+    @author: Alexandre
 """
 
 
